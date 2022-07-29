@@ -1,0 +1,84 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package pkg8;
+/**
+ *
+ * @author Marshal Dekivadiya
+ */
+import java.io.*;
+import java.util.Scanner;
+class AgeNotWithInRangeException2 extends Exception
+{
+    public String toString()
+    {
+        return("Age is not In Range: ");
+    }
+}
+class NameNotValidException2 extends Exception
+{
+    public String validname()
+    {
+        return("Name is not Valid … Please ReEnter the Name");
+    }
+}
+class Person
+{
+    String name;
+    int age;
+    Person(String n,int age)
+    {
+        int l,temp=0;
+        l=n.length();
+        for(int i=0;i<l;i++)
+        {
+            char ch;
+            ch=n.charAt(i);
+            if(ch<'A' || ch>'Z' && ch<'a' || ch>'z')
+            temp=1;
+        }
+        try
+        {
+        if(temp==1)
+            throw new NameNotValidException2();
+        else
+            name=n;
+        }
+        catch(NameNotValidException2 e2)
+        {
+            System.out.println(e2);
+        }
+        try
+        {
+            if(age>=15 && age<=21)
+                this.age=age;
+            else
+                throw new AgeNotWithInRangeException2();
+        }
+        catch(AgeNotWithInRangeException2 e1)
+        {
+            System.out.println(e1);
+        }
+    }
+    void display()
+    {
+        System.out.print("Name: ");
+        System.out.println(name);
+        System.out.print("Age: ");
+        System.out.println(age);
+    }
+}
+public class _21MSIT002 {
+    public static void main(String[] args) throws IOException {
+        Scanner scan=new Scanner(System.in);
+String n;
+        int age;
+    System.out.println("Enter Your name: ");
+        n=scan.nextLine();
+        System.out.println("Enter Age of Driver: ");
+        age=Integer.parseInt(scan.nextLine());
+          Person p=new Person(n,age);
+        p.display();
+    }    
+}
