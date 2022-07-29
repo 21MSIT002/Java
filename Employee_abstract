@@ -29,7 +29,7 @@ class Worker4 extends Person4{
 }
 class Q4 {
     public static void main(String[] args) {
-        Employee4 e = new Employee4(1,"JAnvi","Vadodara");        
+        Employee4 e = new Employee4(1,"MARSHAL","JUNAGADH");        
         e.display();        
         Worker4 w = new Worker4("ABC",8);        
         w.display();
