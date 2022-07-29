@@ -1,0 +1,57 @@
+abstract class Shape{
+    abstract void area();
+}
+class Rectangle extends Shape{
+    double l,b,ar;
+    Rectangle(double len, double bre){
+        l=len;
+        b=bre;
+    }
+    void area(){
+        ar = l * b;
+    }
+    void display(){
+        System.out.println("Length: "+ l +"     "+"Base: "+b);
+        System.out.println("Area of Rectangle: "+ar);
+    }
+}
+class Circle extends Shape{
+    double r,cr;
+    Circle(double rd){
+        r=rd;
+    }
+    void area(){
+        cr= Math.PI * r * r;
+    }
+    void display(){
+        System.out.println("Radius: "+ r);
+        System.out.println("Area of Cicle: "+cr);
+    }
+}
+class Triangle extends Shape{
+    double h,b,tr;
+    Triangle(double hig, double br){
+        h=hig;
+        b=br;
+    }    
+    void area(){
+        tr = h * b / 2;
+    }
+    void display(){
+        System.out.println("Height: "+ h +"     "+"Base: "+b);
+        System.out.println("Area of Triangle: "+tr);
+    }
+}
+class Q3 {
+    public static void main(String[] args) {
+        Rectangle r=new Rectangle(5,5);
+        r.area();
+        r.display();     
+        Circle c=new Circle(5);
+        c.area();
+        c.display();
+        Triangle t=new Triangle(5,5);
+        t.area();
+        t.display();
+    }
+}
