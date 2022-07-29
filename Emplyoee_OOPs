@@ -1,0 +1,71 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package pkg2;
+/**
+ *
+ * @author Marshal Dekivadiya
+ */
+class employee
+{
+    int emp_no;
+    String emp_nm;
+    double salary;
+    public employee(int emp_no, String emp_nm, double salary) {
+        this.emp_no = emp_no;
+        this.emp_nm = emp_nm;
+        this.salary = salary;
+    }
+       void disp_salary()
+    {
+        System.out.println("Employee No: "+emp_no);
+        System.out.println("Employee Name: "+emp_nm);
+        System.out.println("Employee Salary: "+salary);
+    }
+}
+class manager extends employee
+{
+    String dep_nm;
+    String incentive;
+ public manager(String dep_nm, String incentive, int emp_no, String emp_nm, double salary) {
+        super(emp_no, emp_nm, salary);
+        this.dep_nm = dep_nm;
+        this.incentive = incentive;
+    }
+        void disp_salary()
+   {   
+        System.out.println("Manager Deparment Name: "+dep_nm);
+        System.out.println("Manager Incentive: "+incentive);
+        System.out.println("Manager Namae: "+emp_nm);
+        System.out.println("Manager No: "+emp_no);
+        System.out.println("Manager Salary: "+salary);
+    }
+  }
+class sales_manager extends manager
+{
+    double commission;
+  public sales_manager(double commission, String dep_nm, String incentive, int emp_no, String emp_nm, double salary) {
+        super(dep_nm, incentive, emp_no, emp_nm, salary);
+        this.commission = commission;
+    }
+        void disp_salary()
+    {
+        System.out.println("Sales Manager cmommission: "+commission);
+        System.out.println("Sales Manager dep. name: "+dep_nm);
+        System.out.println("Sales Manager incentive: "+incentive);
+        System.out.println("Sales Manager no: "+emp_no);
+        System.out.println("Sales Manager name: "+emp_nm);
+        System.out.println("Sales Manager salary: "+salary);
+       }
+    }
+public class _21MSIT002 {
+        public static void main(String[] args) {
+            employee e = new employee(1, "MARSHAL", 50000);
+            e.disp_salary();
+            manager m = new manager("CMPICA", "IT", 2, "RAJESH", 60000);
+            m.disp_salary();
+            sales_manager s = new sales_manager(5000, "SPU", "CS", 20, "ROHAN", 80000);
+            s.disp_salary();
+    }
+}
