@@ -1,0 +1,37 @@
+abstract class Person4{
+    abstract void display();
+}
+class Employee4 extends Person4{
+    int emp_no;
+    String emp_name, emp_add;    
+    Employee4(int eno, String ename, String eadd){
+        emp_no=eno;
+        emp_name=ename;
+        emp_add=eadd;
+    }
+    void display(){
+        System.out.println("Employee No: "+emp_no);
+        System.out.println("Employee Name: "+emp_name);
+        System.out.println("Employee Address: "+emp_add);
+    }
+}
+class Worker4 extends Person4{
+    int wh;
+    String wrkr_name;
+    Worker4(String wname, int whr){
+        wrkr_name=wname;
+        wh=whr;
+    }
+    void display(){
+        System.out.println("Worker Name: "+wrkr_name);        
+        System.out.println("Worker Working Hour: "+wh);
+    }
+}
+class Q4 {
+    public static void main(String[] args) {
+        Employee4 e = new Employee4(1,"JAnvi","Vadodara");        
+        e.display();        
+        Worker4 w = new Worker4("ABC",8);        
+        w.display();
+    }
+}
