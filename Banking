@@ -1,0 +1,59 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package pkg6;
+
+/**
+ *
+ * @author Marshal Dekivadiya
+ */
+import java.util.Scanner;
+class InSufficientFundException extends RuntimeException {
+ 
+     public String message;
+ 
+    public InSufficientFundException(String message) {
+        this.message = message;
+}
+ 
+    public InSufficientFundException(Throwable cause, String message) {
+        super(cause);
+        this.message = message;
+    }
+ 
+    @Override
+    public String getMessage() {
+        return message;
+    }
+}
+class CheckingAmount
+ { 
+   	 private int balance = 3000;
+   	 public int balance() 
+{
+       		 return balance;
+   	 }
+    public void withdraw(int amount) throws InSufficientFundException {
+        if (amount > balance) {
+            throw new InSufficientFundException
+        (String.format("Current balance %d is less than requested amount %d",
+                    balance, amount));
+        }
+        balance = balance - amount;
+    }
+}
+
+public class _21MSIT002 {
+        public static void main(String[] args) throws InSufficientFundException {
+        Scanner sc=new Scanner(System.in);
+        CheckingAmount obj=new CheckingAmount();
+        System.out.println("Current balance : " + obj.balance());
+        System.out.println("Enter Amount to Withdraw: ");
+        int amount=Integer.parseInt(sc.nextLine());
+        obj.withdraw(amount);
+        System.out.println("New Current balance is: " + obj.balance());
+    }
+
+    
+}
